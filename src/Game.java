@@ -79,6 +79,7 @@ public class Game {
                 htmlOutput.append("<img src='").append(getImagePath(agent.getStrategy()))
                         .append("' alt='").append(agent.getStrategy())
                         .append("' width='120' height='150'>");
+                htmlOutput.append("<p>ID: ").append(agent.getId()).append("</p>");
                 htmlOutput.append("</div></th>");
             }
             htmlOutput.append("</tr>");
@@ -111,6 +112,7 @@ public class Game {
 
         removeWeakAgents();
 
+        htmlOutput.append("<h2>Endgame BI Statistics</h2>");
         displayStatistics(); // Display statistics at the end of all games
 
         htmlOutput.append("</body></html>");
@@ -361,9 +363,9 @@ public class Game {
         // Agent with the most points across all games
         if (overallTopAgent != null) {
             htmlOutput.append("<h3>Agent with the Most Points Across All Games:</h3>");
-            htmlOutput.append("<table border='1'><tr><th>Strategy</th><th>Payoff</th></tr>");
+            htmlOutput.append("<table border='1'><tr><th>Strategy</th><th>Payoff</th><th>ID</th></tr>");
             htmlOutput.append("<tr><td>").append(getStrategyName(overallTopAgent.getStrategy()))
-                    .append("</td><td>").append(agentTotalPayoffs.get(overallTopAgent.getId())).append("</td></tr>");
+                    .append("</td><td>").append(agentTotalPayoffs.get(overallTopAgent.getId())).append("</td><td>").append(overallTopAgent.getId()).append("</td></tr>");
             htmlOutput.append("</table>");
         }
     }
